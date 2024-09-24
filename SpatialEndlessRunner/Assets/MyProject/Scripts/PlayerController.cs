@@ -7,37 +7,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
-    [SerializeField] GameObject OnGroundCheck;
+    [SerializeField] Transform OnGroundCheck;
     [SerializeField] float jumpRadius;
     [SerializeField] LayerMask onGround;
 
     bool canJump;
-
-    Vector2 point;
-
 
     Rigidbody2D rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        point = OnGroundCheck.GetComponent<Rigidbody2D>().position;
     }
 
     private void Update()
     {
-        if (!Input.GetButtonDown("Jump") && OnGround)
+        print(OnGround());
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround())
         {
-            
+            canJump = true;
         }
-        canJump = true;
-    }
+    }   
     private void FixedUpdate()
     {
         Move();
-        Jump();
+        if (canJump) Jump();
     }
 
     void Move()
@@ -50,15 +48,18 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (canJump)
-        {
+            canJump = false;
 
-        }
+            Vector2 _velocity = rb.velocity;
+            _velocity.y = 0f;
+            rb.velocity = _velocity;
+
+            rb.AddForce(Vector2.up * jumpForce);
     }
 
     bool OnGround()
     {
-        return Physics2D.OverlapCircle(point, jumpRadius, onGround);
+        return Physics2D.OverlapCircle(OnGroundCheck.position, jumpRadius, onGround);
     }
 
 }
