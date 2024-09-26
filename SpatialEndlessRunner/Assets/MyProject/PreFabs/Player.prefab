@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 600
-  OnGroundCheck: {fileID: 8999663905064666859}
+  OnGroundCheck: {fileID: 485875287783812644}
   jumpRadius: 0.06
   onGround:
     serializedVersion: 2

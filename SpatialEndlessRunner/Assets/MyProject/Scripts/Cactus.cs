@@ -8,6 +8,7 @@ public class Cactus : MonoBehaviour
 
     public void SetNewVisual()
     {
+
         foreach (var item in visual)
         {
             item.gameObject.SetActive(false);

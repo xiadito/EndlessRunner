@@ -25,9 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        print(OnGround());
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround())
+        //check if can jump
+        if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround(OnGroundCheck.position, jumpRadius, onGround))
         {
             canJump = true;
         }
@@ -40,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        /* Makes the player go foward. */
+
         Vector2 _velocity = rb.velocity;
         _velocity.x = moveSpeed;
         rb.velocity = _velocity;
@@ -48,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        /* Make the player jump. */
+
             canJump = false;
 
             Vector2 _velocity = rb.velocity;
@@ -57,9 +60,10 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce);
     }
 
-    bool OnGround()
+    bool OnGround(Vector2 point, float radius, LayerMask layerMask)
     {
-        return Physics2D.OverlapCircle(OnGroundCheck.position, jumpRadius, onGround);
+
+        return Physics2D.OverlapCircle(point, radius, layerMask);
     }
 
 }
