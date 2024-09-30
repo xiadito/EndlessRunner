@@ -7,11 +7,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float accelaration;
-    [SerializeField] float currentMoveSpeed;
+    [SerializeField] float acceleration;
     [SerializeField] float maxMoveSpeed;
-    [SerializeField] float moveSpeed;
+    [SerializeField] float currentMoveSpeed;
+
     [SerializeField] float jumpForce;
+
     [SerializeField] Transform OnGroundCheck;
     [SerializeField] float jumpRadius;
     [SerializeField] LayerMask onGround;
@@ -43,11 +44,14 @@ public class PlayerController : MonoBehaviour
     {
         /* Makes the player go foward. */
 
+        currentMoveSpeed = Mathf.Lerp(currentMoveSpeed, maxMoveSpeed, acceleration * Time.fixedDeltaTime);
+
         Vector2 _velocity = rb.velocity;
-        _velocity.x = moveSpeed;
+        _velocity.x = currentMoveSpeed;
         rb.velocity = _velocity;
 
-    }
+        print(rb.velocity);
+    }   
 
     void Jump()
     {

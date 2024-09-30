@@ -1524,9 +1524,25 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
+      propertyPath: acceleration
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
+      propertyPath: maxMoveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
+      propertyPath: minMoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
       propertyPath: OnGroundCheck
       value: 
       objectReference: {fileID: 1752027577}
+    - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
+      propertyPath: currentMoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
