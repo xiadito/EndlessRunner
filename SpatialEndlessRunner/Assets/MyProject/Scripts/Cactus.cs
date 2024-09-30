@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Cactus : MonoBehaviour
 {
-    GameObject[] visual;
+
+    [SerializeField] GameObject[] visual;
+
+    private void Awake()
+    {
+        SetNewVisual();
+    }
 
     public void SetNewVisual()
     {
@@ -18,4 +24,6 @@ public class Cactus : MonoBehaviour
 
         visual[i].gameObject.SetActive(true);
     }
+
 }
+

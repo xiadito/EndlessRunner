@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [SerializeField] float accelaration;
+    [SerializeField] float currentMoveSpeed;
+    [SerializeField] float maxMoveSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] Transform OnGroundCheck;
