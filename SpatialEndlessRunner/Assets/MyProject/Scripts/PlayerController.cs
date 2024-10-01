@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] float acceleration;
     [SerializeField] float maxMoveSpeed;
     [SerializeField] float currentMoveSpeed;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpRadius;
     [SerializeField] LayerMask onGround;
 
+    bool isDead;
     bool canJump;
 
     Rigidbody2D rb;
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (isDead) return;
+  
         if (OnGround(OnGroundCheck.position, jumpRadius, onGround)) animator.SetBool("Jump", false);
 
         //check if can jump
@@ -39,7 +43,9 @@ public class PlayerController : MonoBehaviour
         }
     }   
     private void FixedUpdate()
-    {
+    {   
+        if (isDead) return;
+
         Move();
 
 
@@ -49,6 +55,16 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D _other)
+    {
+        if (_other.gameObject.CompareTag("Cacti"))
+        {
+            isDead = true;
+            animator.SetBool("Death", true);
+        }
+    }
+    
 
     void Move()
     {
