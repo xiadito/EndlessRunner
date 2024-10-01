@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,14 +20,18 @@ public class PlayerController : MonoBehaviour
     bool canJump;
 
     Rigidbody2D rb;
+    Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        if (OnGround(OnGroundCheck.position, jumpRadius, onGround)) animator.SetBool("Jump", false);
+
         //check if can jump
         if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround(OnGroundCheck.position, jumpRadius, onGround))
         {
@@ -37,7 +41,13 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        if (canJump) Jump();
+
+
+        if (canJump)
+        {
+            Jump();
+            
+        }
     }
 
     void Move()
@@ -64,6 +74,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity = _velocity;
 
             rb.AddForce(Vector2.up * jumpForce);
+            animator.SetBool("Jump", true);
+
     }
 
     bool OnGround(Vector2 point, float radius, LayerMask layerMask)
