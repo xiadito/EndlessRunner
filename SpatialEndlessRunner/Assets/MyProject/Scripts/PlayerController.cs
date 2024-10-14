@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpRadius;
     [SerializeField] LayerMask onGround;
 
-    bool isDead;
+    public bool isDead;
     bool canJump;
 
     Rigidbody2D rb;
@@ -33,8 +33,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (isDead) return;
-  
-        if (OnGround(OnGroundCheck.position, jumpRadius, onGround)) animator.SetBool("Jump", false);
+
+        if (OnGround(OnGroundCheck.position, jumpRadius, onGround))
+        {
+            animator.SetBool("Jump", false);
+        }
 
         //check if can jump
         if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround(OnGroundCheck.position, jumpRadius, onGround))
@@ -48,14 +51,10 @@ public class PlayerController : MonoBehaviour
 
         Move();
 
-
-        if (canJump)
-        {
-            Jump();
-            
-        }
+        if (canJump) Jump();
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D _other)
     {
         if (_other.gameObject.CompareTag("Cacti"))
@@ -64,8 +63,8 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Death", true);
         }
     }
+    */
     
-
     void Move()
     {
         /* Makes the player go foward. */
@@ -76,7 +75,7 @@ public class PlayerController : MonoBehaviour
         _velocity.x = currentMoveSpeed;
         rb.velocity = _velocity;
 
-        print(rb.velocity);
+        print(rb.velocity); 
     }   
 
     void Jump()

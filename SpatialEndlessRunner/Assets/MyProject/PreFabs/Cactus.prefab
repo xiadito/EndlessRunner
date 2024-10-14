@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2863247156314129764}
   - component: {fileID: 6308669158739854078}
   - component: {fileID: 1278944060464080110}
+  - component: {fileID: 7133107814659189496}
   m_Layer: 0
-  m_Name: Cactus A
+  m_Name: Cacti A
   m_TagString: Cacti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,6 +137,18 @@ PolygonCollider2D:
       - {x: 0.31330633, y: 1.1196365}
       - {x: 0.22921357, y: 1.2037301}
   m_UseDelaunayMesh: 0
+--- !u!114 &7133107814659189496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198363723641928743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0432983d80524964ba4c3425f68a2fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2429081963915793549
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,8 +160,9 @@ GameObject:
   - component: {fileID: 6491891378447098302}
   - component: {fileID: 2580850341050325885}
   - component: {fileID: 8076639001540521100}
+  - component: {fileID: 6720646854770146510}
   m_Layer: 0
-  m_Name: Cactus C
+  m_Name: Cacti C
   m_TagString: Cacti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 2429081963915793549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.654, z: 0}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,6 +286,18 @@ PolygonCollider2D:
       - {x: 0.875, y: 1}
       - {x: 0.5625, y: 1.25}
   m_UseDelaunayMesh: 0
+--- !u!114 &6720646854770146510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2429081963915793549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0432983d80524964ba4c3425f68a2fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3064089277003654354
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +332,7 @@ Transform:
   - {fileID: 2863247156314129764}
   - {fileID: 8493088511732936833}
   - {fileID: 6491891378447098302}
+  - {fileID: 8005826421327582265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4277529674002493790
@@ -369,6 +396,96 @@ MonoBehaviour:
   - {fileID: 2198363723641928743}
   - {fileID: 8870856746722689433}
   - {fileID: 2429081963915793549}
+--- !u!1 &5729458766487733002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8005826421327582265}
+  - component: {fileID: 9150260324224891406}
+  - component: {fileID: 790874506311049481}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8005826421327582265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729458766487733002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6771546255714326526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &9150260324224891406
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729458766487733002}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.40279436, y: 1.4671763}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19441128, y: 4.1883364}
+  m_EdgeRadius: 0
+--- !u!114 &790874506311049481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729458766487733002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47896ac663c557040934350a4cc497a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8870856746722689433
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,8 +497,9 @@ GameObject:
   - component: {fileID: 8493088511732936833}
   - component: {fileID: 7791006231938115248}
   - component: {fileID: 2943935802205816161}
+  - component: {fileID: 6039639605625129625}
   m_Layer: 0
-  m_Name: Cactus B
+  m_Name: Cacti B
   m_TagString: Cacti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,3 +625,15 @@ PolygonCollider2D:
       - {x: 0.60107195, y: 0.68746495}
       - {x: 0.4540006, y: 0.76828694}
   m_UseDelaunayMesh: 0
+--- !u!114 &6039639605625129625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8870856746722689433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0432983d80524964ba4c3425f68a2fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
