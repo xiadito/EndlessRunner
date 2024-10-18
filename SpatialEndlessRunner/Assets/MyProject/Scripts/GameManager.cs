@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 
 public class GameManager : MonoBehaviour
@@ -12,8 +13,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreTXT;
     [SerializeField] TextMeshProUGUI highscoreTXT;
 
+    
+ 
     private int score;
     private int highscore;
+
+    public enum Screen
+    {
+        Normal,
+        Dead
+    }
+
+    public Screen currentScreen;
+
 
     public static GameManager Instance;
 
@@ -26,6 +38,11 @@ public class GameManager : MonoBehaviour
 
         UpdateScore();
         UpdateHighScore(); 
+    }
+
+    public void ToggleScreen(Screen _screen)
+    {
+        currentScreen = _screen;
     }
 
     public void AddScore()
