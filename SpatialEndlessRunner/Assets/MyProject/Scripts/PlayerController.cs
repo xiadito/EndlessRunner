@@ -99,7 +99,14 @@ public class PlayerController : MonoBehaviour
 
     public void Death()
     {
-        print("morto");
+        animator.SetBool("Death", true);
+       
+        Invoke("ToggleScreenDead", 2f);
+    }
+
+    void ToggleScreenDead()
+    {
+        GameManager.Instance.ToggleScreen(GameManager.Screen.Dead);
     }
 
     bool OnGround(Vector2 point, float radius, LayerMask layerMask)

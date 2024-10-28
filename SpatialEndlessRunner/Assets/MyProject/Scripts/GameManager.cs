@@ -8,6 +8,8 @@ using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     public bool runGame;
     public bool pauseGame;
 
@@ -25,8 +27,6 @@ public class GameManager : MonoBehaviour
         Normal,
         Dead,
     }
-
-    public static GameManager Instance;
 
     private void Awake()
     {
