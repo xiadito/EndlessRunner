@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Unity.VisualScripting;
 
 
 public class GameManager : MonoBehaviour
@@ -13,7 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreTXT;
     [SerializeField] TextMeshProUGUI highscoreTXT;
 
-    
+    [SerializeField] GameObject normalScreen;
+    [SerializeField] GameObject deadScreen;
+    //[SerializeField] GameObject pauseScreen;
+
  
     private int score;
     private int highscore;
@@ -21,17 +25,17 @@ public class GameManager : MonoBehaviour
     public enum Screen
     {
         Normal,
-        Dead
+        Dead,
+        Pause,
     }
-
-    public Screen currentScreen;
-
 
     public static GameManager Instance;
 
     private void Awake()
     {
         Instance = this;
+
+
 
         score = 0;
         highscore = PlayerPrefs.GetInt("HighScore");
@@ -40,9 +44,37 @@ public class GameManager : MonoBehaviour
         UpdateHighScore(); 
     }
 
+   
+    
     public void ToggleScreen(Screen _screen)
     {
-        currentScreen = _screen;
+        switch (_screen)
+        {
+            case Screen.Normal:
+
+                normalScreen.SetActive(true);
+                deadScreen.SetActive(false);
+                //pauseScreen.SetActive(false);
+
+                break;
+
+            case Screen.Dead:
+
+                deadScreen.SetActive(true);
+                normalScreen.SetActive(false);
+                //pauseScreen.SetActive(false);
+                
+                break;
+
+            /*case Screen.Pause:
+
+                pauseScreen.SetActive(true);
+                normalScreen.SetActive(false);
+                deadScreen.SetActive(false);
+
+                break;
+            */
+        }
     }
 
     public void AddScore()

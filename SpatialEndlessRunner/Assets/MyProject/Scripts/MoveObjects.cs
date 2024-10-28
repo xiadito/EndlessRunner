@@ -15,8 +15,6 @@ public class MoveObjects : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {           
         MoveScenario(other);
-
-       
     }
 
     void MoveScenario(Collider2D _other)

@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
 
     [SerializeField] float acceleration;
     [SerializeField] float maxMoveSpeed;
@@ -32,7 +33,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (isDead) return;
+        if (isDead) 
+        {
+            GameManager.Instance.ToggleScreen(GameManager.Screen.Dead);
+
+            return;
+        } 
 
         if (OnGround(OnGroundCheck.position, jumpRadius, onGround))
         {
