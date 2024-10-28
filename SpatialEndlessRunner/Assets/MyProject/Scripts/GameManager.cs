@@ -16,9 +16,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject normalScreen;
     [SerializeField] GameObject deadScreen;
-    //[SerializeField] GameObject pauseScreen;
 
- 
     private int score;
     private int highscore;
 
@@ -26,7 +24,6 @@ public class GameManager : MonoBehaviour
     {
         Normal,
         Dead,
-        Pause,
     }
 
     public static GameManager Instance;
@@ -35,8 +32,6 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
 
-
-
         score = 0;
         highscore = PlayerPrefs.GetInt("HighScore");
 
@@ -44,8 +39,6 @@ public class GameManager : MonoBehaviour
         UpdateHighScore(); 
     }
 
-   
-    
     public void ToggleScreen(Screen _screen)
     {
         switch (_screen)
@@ -54,7 +47,6 @@ public class GameManager : MonoBehaviour
 
                 normalScreen.SetActive(true);
                 deadScreen.SetActive(false);
-                //pauseScreen.SetActive(false);
 
                 break;
 
@@ -62,18 +54,8 @@ public class GameManager : MonoBehaviour
 
                 deadScreen.SetActive(true);
                 normalScreen.SetActive(false);
-                //pauseScreen.SetActive(false);
                 
                 break;
-
-            /*case Screen.Pause:
-
-                pauseScreen.SetActive(true);
-                normalScreen.SetActive(false);
-                deadScreen.SetActive(false);
-
-                break;
-            */
         }
     }
 

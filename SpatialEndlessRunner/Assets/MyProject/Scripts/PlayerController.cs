@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //pra usar metodos de cena.
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 
 public class PlayerController : MonoBehaviour
 {
-    
-
     [SerializeField] float acceleration;
     [SerializeField] float maxMoveSpeed;
     [SerializeField] float currentMoveSpeed;
@@ -33,13 +32,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (isDead) 
-        {
-            GameManager.Instance.ToggleScreen(GameManager.Screen.Dead);
+        if (!GameManager.Instance.runGame) return;
 
-            return;
-        } 
-
+        if (isDead) return;
+       
         if (OnGround(OnGroundCheck.position, jumpRadius, onGround))
         {
             animator.SetBool("Jump", false);
@@ -53,6 +49,8 @@ public class PlayerController : MonoBehaviour
     }   
     private void FixedUpdate()
     {   
+        if (GameManager.Instance.runGame) return;
+
         if (isDead) return;
 
         Move();
@@ -97,6 +95,11 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce);
             animator.SetBool("Jump", true);
 
+    }
+
+    public void Death()
+    {
+        print("morto");
     }
 
     bool OnGround(Vector2 point, float radius, LayerMask layerMask)
