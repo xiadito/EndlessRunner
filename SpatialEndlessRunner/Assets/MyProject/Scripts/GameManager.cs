@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
-using Unity.VisualScripting;
-
 
 public class GameManager : MonoBehaviour
 {
@@ -85,8 +82,5 @@ public class GameManager : MonoBehaviour
     {
         highscoreTXT.text = highscore.ToString("00000");
     }
-
-
-
 
 }

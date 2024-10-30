@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //pra usar metodos de cena.
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -49,7 +46,7 @@ public class PlayerController : MonoBehaviour
     }   
     private void FixedUpdate()
     {   
-        if (GameManager.Instance.runGame) return;
+        if (!GameManager.Instance.runGame) return;
 
         if (isDead) return;
 
@@ -101,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("Death", true);
        
-        Invoke("ToggleScreenDead", 2f);
+        Invoke("ToggleScreenDead", 1f);
     }
 
     void ToggleScreenDead()
