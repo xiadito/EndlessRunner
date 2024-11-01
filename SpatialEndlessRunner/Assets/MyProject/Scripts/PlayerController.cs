@@ -32,11 +32,17 @@ public class PlayerController : MonoBehaviour
         if (!GameManager.Instance.runGame) return;
 
         if (isDead) return;
-       
+
         if (OnGround(OnGroundCheck.position, jumpRadius, onGround))
         {
+            animator.SetBool("OnGround", true);
             animator.SetBool("Jump", false);
         }
+        else
+        {
+            animator.SetBool("OnGround", false);
+        }
+
 
         //check if can jump
         if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround(OnGroundCheck.position, jumpRadius, onGround))
@@ -84,12 +90,15 @@ public class PlayerController : MonoBehaviour
         /* Make the player jump. */
 
             canJump = false;
+        
 
             Vector2 _velocity = rb.velocity;
             _velocity.y = 0f;
             rb.velocity = _velocity;
 
             rb.AddForce(Vector2.up * jumpForce);
+
+            animator.SetBool("OnGround", false);
             animator.SetBool("Jump", true);
 
     }

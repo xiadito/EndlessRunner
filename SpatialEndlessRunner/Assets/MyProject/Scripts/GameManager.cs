@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreTXT;
     [SerializeField] TextMeshProUGUI highscoreTXT;
 
+    [SerializeField] GameObject menuScreen;
     [SerializeField] GameObject normalScreen;
     [SerializeField] GameObject deadScreen;
 
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
     private int highscore;
 
     public enum Screen
-    {
+    {   
+        Menu,
         Normal,
         Dead,
     }
@@ -40,17 +42,27 @@ public class GameManager : MonoBehaviour
     {
         switch (_screen)
         {
+            case Screen.Menu:
+
+                normalScreen.SetActive(false);
+                deadScreen.SetActive(false);
+                menuScreen.SetActive(true);
+
+                break;  
+
             case Screen.Normal:
 
-                normalScreen.SetActive(true);
                 deadScreen.SetActive(false);
+                menuScreen.SetActive(false);
+                normalScreen.SetActive(true);
 
                 break;
 
             case Screen.Dead:
 
-                deadScreen.SetActive(true);
                 normalScreen.SetActive(false);
+                menuScreen.SetActive(false);
+                deadScreen.SetActive(true);
                 
                 break;
         }

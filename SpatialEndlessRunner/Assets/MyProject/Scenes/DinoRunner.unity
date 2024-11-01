@@ -452,6 +452,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 161722881}
     m_Modifications:
+    - target: {fileID: 2198363723641928743, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429081963915793549, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3064089277003654354, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
       propertyPath: m_Name
       value: Cactus (2)
@@ -494,6 +502,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771546255714326526, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870856746722689433, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -893,7 +905,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 550736111}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 914306172}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &550736111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,6 +1005,7 @@ GameObject:
   - component: {fileID: 664807211}
   - component: {fileID: 664807210}
   - component: {fileID: 664807209}
+  - component: {fileID: 664807212}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1101,6 +1126,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664807207}
   m_CullTransparentMesh: 1
+--- !u!95 &664807212
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664807207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7da4dbf09fc5ba40bcc04dbbe9b80b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &666578754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1109,6 +1155,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 161722881}
     m_Modifications:
+    - target: {fileID: 2198363723641928743, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429081963915793549, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3064089277003654354, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
       propertyPath: m_Name
       value: Cactus (1)
@@ -1151,6 +1205,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771546255714326526, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870856746722689433, guid: a856dc5935e46024983a63befbd8b9d0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1493,6 +1551,7 @@ MonoBehaviour:
   pauseGame: 0
   scoreTXT: {fileID: 2019870128}
   highscoreTXT: {fileID: 1373313126}
+  menuScreen: {fileID: 1595969528}
   normalScreen: {fileID: 251077380}
   deadScreen: {fileID: 694630504}
 --- !u!4 &986537525 stripped
@@ -1713,7 +1772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1595969529
 RectTransform:
   m_ObjectHideFlags: 0
