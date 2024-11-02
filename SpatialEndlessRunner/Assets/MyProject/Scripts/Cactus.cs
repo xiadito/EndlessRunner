@@ -9,7 +9,7 @@ public class Cactus : MonoBehaviour
     [SerializeField] GameObject[] visual;
 
     private void Awake()
-    {   
+    {
         SetNewVisual();
     }
 

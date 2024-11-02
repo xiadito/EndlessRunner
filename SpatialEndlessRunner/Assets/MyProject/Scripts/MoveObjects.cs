@@ -21,9 +21,17 @@ public class MoveObjects : MonoBehaviour
     {
         if (_other.CompareTag(tagTarget))
         {
-            if (tagTarget == "Cactus")
+            if (changeVisual)
             {
-                _other.GetComponent<Cactus>().SetNewVisual();
+                if (tagTarget == "Cactus")
+                {
+                    _other.GetComponent<Cactus>().SetNewVisual();
+                }
+                else
+                {
+                    _other.GetComponent<Clouds>().SetNewVisual();
+                }
+
             }
 
             Vector2 _newPosition = _other.transform.position;
