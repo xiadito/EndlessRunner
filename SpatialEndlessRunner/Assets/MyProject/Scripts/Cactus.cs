@@ -10,7 +10,6 @@ public class Cactus : MonoBehaviour
 
     private void Awake()
     {   
-        Debug.Log(visual.Length);
         SetNewVisual();
     }
 

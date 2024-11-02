@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isDead;
     bool canJump;
+    bool canForceDown;
 
     Rigidbody2D rb;
     Animator animator;
@@ -43,9 +45,13 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("OnGround", false);
         }
 
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) && !OnGround(OnGroundCheck.position, jumpRadius, onGround))
+        {
+            canForceDown = true;
+        }
 
         //check if can jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround(OnGroundCheck.position, jumpRadius, onGround))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) && OnGround(OnGroundCheck.position, jumpRadius, onGround))
         {
             canJump = true;
         }
@@ -59,6 +65,8 @@ public class PlayerController : MonoBehaviour
         Move();
 
         if (canJump) Jump();
+
+        if (canForceDown) ForceDown();
     }
 
     /*
@@ -100,6 +108,18 @@ public class PlayerController : MonoBehaviour
 
             animator.SetBool("OnGround", false);
             animator.SetBool("Jump", true);
+
+    }
+
+    void ForceDown()
+    {
+        canForceDown = false;
+
+        Vector2 _vel = rb.velocity;
+        _vel.y = 0f;
+        rb.velocity = _vel;
+
+        rb.AddForce(Vector2.down * jumpForce);
 
     }
 
