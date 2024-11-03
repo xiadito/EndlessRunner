@@ -83,27 +83,20 @@ public class PlayerController : MonoBehaviour
     
     void Move()
     {
-        /* Makes the player go foward. */
+       /** Makes the player go foward. **/
 
         currentMoveSpeed = Mathf.Lerp(currentMoveSpeed, maxMoveSpeed, acceleration * Time.fixedDeltaTime);
 
-        Vector2 _velocity = rb.velocity;
-        _velocity.x = currentMoveSpeed;
-        rb.velocity = _velocity;
-
-        print(rb.velocity); 
+        rb.velocity = new Vector2(currentMoveSpeed, rb.velocity.y);
     }   
 
     void Jump()
     {
-        /* Make the player jump. */
+        /** Add vertical positive value to the x vector. **/
 
             canJump = false;
-        
 
-            Vector2 _velocity = rb.velocity;
-            _velocity.y = 0f;
-            rb.velocity = _velocity;
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
 
             rb.AddForce(Vector2.up * jumpForce);
 
@@ -114,11 +107,11 @@ public class PlayerController : MonoBehaviour
 
     void ForceDown()
     {
+        /** Add vertical negative value to the x vector. **/
+
         canForceDown = false;
 
-        Vector2 _vel = rb.velocity;
-        _vel.y = 0f;
-        rb.velocity = _vel;
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
 
         rb.AddForce(Vector2.down * jumpForce);
 
@@ -126,6 +119,8 @@ public class PlayerController : MonoBehaviour
 
     public void Death()
     {
+        /** Toggle death bool on animator and changes the screen. **/
+
         animator.SetBool("Death", true);
        
         Invoke("ToggleScreenDead", 1f);
@@ -133,12 +128,21 @@ public class PlayerController : MonoBehaviour
 
     void ToggleScreenDead()
     {
+        /** Changes the Screen value in GameManager **/
+
         GameManager.Instance.ToggleScreen(GameManager.Screen.Dead);
     }
 
     bool OnGround(Vector2 point, float radius, LayerMask layerMask)
     {
-
+        /**
+        /// Return true or false if the player is in the ground
+        /// true: if the radius intercepts the layermask.
+        /// false: if the radius doesn't intercept the layermask.
+        /// <param>point: where creates the circle</param>
+        /// <param>radius: size of the radius.</param>
+        /// <param>layermask: layermask name that is verificated.</param>
+        **/
         return Physics2D.OverlapCircle(point, radius, layerMask);
     }
 

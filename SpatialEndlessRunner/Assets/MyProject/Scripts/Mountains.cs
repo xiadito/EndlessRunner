@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Clouds : MonoBehaviour
+public class Mountains : MonoBehaviour
 {
     [SerializeField] GameObject[] visuals;
 
@@ -18,13 +18,11 @@ public class Clouds : MonoBehaviour
             visual.gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < Random.Range(0, 3); i++)
+        for (int i = 0; i < Random.Range(0,3); i++)
         {
             int x = Random.Range(0, visuals.Length);
 
             visuals[x].gameObject.SetActive(true);
         }
-
-
     }
 }

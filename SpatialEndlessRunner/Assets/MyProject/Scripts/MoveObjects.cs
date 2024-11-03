@@ -27,9 +27,13 @@ public class MoveObjects : MonoBehaviour
                 {
                     _other.GetComponent<Cactus>().SetNewVisual();
                 }
-                else
+                else if (tagTarget == "Clouds")
                 {
                     _other.GetComponent<Clouds>().SetNewVisual();
+                }
+                else
+                {
+                    _other.GetComponent<Mountains>().SetNewVisual();
                 }
 
             }
