@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        score = 0;
+        ResetScore();
         highscore = PlayerPrefs.GetInt("HighScore");
 
         UpdateScore();
@@ -74,6 +74,12 @@ public class GameManager : MonoBehaviour
                 
                 break;
         }
+    }
+
+    public void ResetScore()
+    {
+        /** Set the variable score to 0. **/
+        score = 0;
     }
 
     public void AddScore()

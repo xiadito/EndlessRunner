@@ -24,8 +24,12 @@ public class UiManager : MonoBehaviour
     public void RestartScene()
     {
         AudioController.Instance.buttonSound.Play();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         GameManager.Instance.ToggleScreen(GameManager.Screen.Menu);
+        GameManager.Instance.ResetScore();
+        GameManager.Instance.UpdateScore();
     }
 
     public void StartGame()

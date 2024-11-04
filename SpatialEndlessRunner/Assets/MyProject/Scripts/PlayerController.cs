@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("OnGround", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && !OnGround(OnGroundCheck.position, jumpRadius, onGround))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !OnGround(OnGroundCheck.position, jumpRadius, onGround))
         {
             canForceDown = true;
         }
