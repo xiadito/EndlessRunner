@@ -88,20 +88,22 @@ public class PlayerController : MonoBehaviour
         currentMoveSpeed = Mathf.Lerp(currentMoveSpeed, maxMoveSpeed, acceleration * Time.fixedDeltaTime);
 
         rb.velocity = new Vector2(currentMoveSpeed, rb.velocity.y);
+
     }   
 
     void Jump()
     {
         /** Add vertical positive value to the x vector. **/
 
-            canJump = false;
+        canJump = false;
+            
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
 
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.AddForce(Vector2.up * jumpForce);
 
-            rb.AddForce(Vector2.up * jumpForce);
-
-            animator.SetBool("OnGround", false);
-            animator.SetBool("Jump", true);
+        AudioController.Instance.jumpSound.Play();
+        animator.SetBool("OnGround", false);
+        animator.SetBool("Jump", true);
 
     }
 
@@ -120,6 +122,8 @@ public class PlayerController : MonoBehaviour
     public void Death()
     {
         /** Toggle death bool on animator and changes the screen. **/
+
+        GameManager.Instance.runGame = false;
 
         animator.SetBool("Death", true);
        
