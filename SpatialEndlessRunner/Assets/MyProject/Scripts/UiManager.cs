@@ -10,13 +10,22 @@ public class UiManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else 
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void RestartScene()
     {
         AudioController.Instance.buttonSound.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.Instance.ToggleScreen(GameManager.Screen.Menu);
     }
 
     public void StartGame()

@@ -125,6 +125,8 @@ public class PlayerController : MonoBehaviour
 
         GameManager.Instance.runGame = false;
 
+        AudioController.Instance.deathSound.Play();
+
         animator.SetBool("Death", true);
        
         Invoke("ToggleScreenDead", 1f);
