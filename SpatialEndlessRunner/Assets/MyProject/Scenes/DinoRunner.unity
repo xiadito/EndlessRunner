@@ -4216,6 +4216,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
+      propertyPath: footRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
       propertyPath: acceleration
       value: 0.01
       objectReference: {fileID: 0}
@@ -4231,6 +4235,10 @@ PrefabInstance:
       propertyPath: OnGroundCheck
       value: 
       objectReference: {fileID: 1752027577}
+    - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
+      propertyPath: maxJumpHeight
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
       propertyPath: currentMoveSpeed
       value: 6

@@ -12,13 +12,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float currentMoveSpeed;
 
     [SerializeField] float jumpForce;
+    [SerializeField] float maxJumpHeight;
+    bool isJumpReleased;
+    bool canJump;
 
     [SerializeField] Transform OnGroundCheck;
-    [SerializeField] float jumpRadius;
+    [SerializeField] float footRadius;
     [SerializeField] LayerMask onGround;
 
     public bool isDead;
-    bool canJump;
     bool canForceDown;
 
     Rigidbody2D rb;
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
         if (isDead) return;
 
-        if (OnGround(OnGroundCheck.position, jumpRadius, onGround))
+        if (OnGround(OnGroundCheck.position, footRadius, onGround))
         {
             animator.SetBool("OnGround", true);
             animator.SetBool("Jump", false);
@@ -46,17 +48,21 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("OnGround", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !OnGround(OnGroundCheck.position, jumpRadius, onGround))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !OnGround(OnGroundCheck.position, footRadius, onGround))
         {
             canForceDown = true;
         }
 
         //check if can jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround(OnGroundCheck.position, jumpRadius, onGround))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) && OnGround(OnGroundCheck.position, footRadius, onGround))
         {
             canJump = true;
         }
+
+        if (Input.GetKeyUp(KeyCode.Space) && canJump) isJumpReleased = true;
+
     }   
+
     private void FixedUpdate()
     {   
         if (!GameManager.Instance.runGame) return;
@@ -80,11 +86,16 @@ public class PlayerController : MonoBehaviour
         }
     }
     */
-    
+
+    #region Methods
+
+    #region Movement
+
     void Move()
     {
        /** Makes the player go foward. **/
-
+        
+        
         currentMoveSpeed = Mathf.Lerp(currentMoveSpeed, maxMoveSpeed, acceleration * Time.fixedDeltaTime);
 
         rb.velocity = new Vector2(currentMoveSpeed, rb.velocity.y);
@@ -95,15 +106,23 @@ public class PlayerController : MonoBehaviour
     {
         /** Add vertical positive value to the x vector. **/
 
-        canJump = false;
-            
-        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        if (!isJumpReleased)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(Vector2.up * jumpForce);
 
-        rb.AddForce(Vector2.up * jumpForce);
+            AudioController.Instance.jumpSound.Play();
+            animator.SetBool("OnGround", false);
+            animator.SetBool("Jump", true);
+        }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            canJump = false;
+            isJumpReleased = false;
+        }
 
-        AudioController.Instance.jumpSound.Play();
-        animator.SetBool("OnGround", false);
-        animator.SetBool("Jump", true);
+
 
     }
 
@@ -118,7 +137,21 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.down * jumpForce);
 
     }
+    bool OnGround(Vector2 point, float radius, LayerMask layerMask)
+    {
+        /**
+        /// Return true or false if the player is in the ground
+        /// true: if the radius intercepts the layermask.
+        /// false: if the radius doesn't intercept the layermask.
+        /// <param>point: where creates the circle</param>
+        /// <param>radius: size of the radius.</param>
+        /// <param>layermask: layermask name that is verificated.</param>
+        **/
+        return Physics2D.OverlapCircle(point, radius, layerMask);
+    }
+    #endregion
 
+    #region Death
     public void Death()
     {
         /** Toggle death bool on animator and changes the screen. **/
@@ -139,17 +172,9 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.ToggleScreen(GameManager.Screen.Dead);
     }
 
-    bool OnGround(Vector2 point, float radius, LayerMask layerMask)
-    {
-        /**
-        /// Return true or false if the player is in the ground
-        /// true: if the radius intercepts the layermask.
-        /// false: if the radius doesn't intercept the layermask.
-        /// <param>point: where creates the circle</param>
-        /// <param>radius: size of the radius.</param>
-        /// <param>layermask: layermask name that is verificated.</param>
-        **/
-        return Physics2D.OverlapCircle(point, radius, layerMask);
-    }
+    #endregion
+
+    #endregion
+
 
 }
