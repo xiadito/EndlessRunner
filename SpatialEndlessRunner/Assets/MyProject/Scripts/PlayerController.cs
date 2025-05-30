@@ -7,14 +7,23 @@ using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables
+
+    #region Movement
+
     [SerializeField] float acceleration;
     [SerializeField] float maxMoveSpeed;
     [SerializeField] float currentMoveSpeed;
 
     [SerializeField] float jumpForce;
     [SerializeField] float maxJumpHeight;
+    float jumpStartHeight;
+    [SerializeField] float currentJumpHeight;
     bool isJumpReleased;
+    bool hasPlayedJumpSound = false;
     bool canJump;
+
+    #endregion
 
     [SerializeField] Transform OnGroundCheck;
     [SerializeField] float footRadius;
@@ -25,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     Animator animator;
+
+    #endregion
 
     private void Awake()
     {
@@ -57,10 +68,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) && OnGround(OnGroundCheck.position, footRadius, onGround))
         {
             canJump = true;
+            jumpStartHeight = transform.position.y;
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && canJump) isJumpReleased = true;
-
+        
     }   
 
     private void FixedUpdate()
@@ -104,25 +116,32 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+
         /** Add vertical positive value to the x vector. **/
 
-        if (!isJumpReleased)
+        currentJumpHeight = transform.position.y - jumpStartHeight;
+
+        if (isJumpReleased || currentJumpHeight > maxJumpHeight)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * jumpForce);
-
-            AudioController.Instance.jumpSound.Play();
-            animator.SetBool("OnGround", false);
-            animator.SetBool("Jump", true);
+            hasPlayedJumpSound = false;
+            canJump = false;
+            isJumpReleased = false;
         }
         else
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            canJump = false;
-            isJumpReleased = false;
+            rb.AddForce(Vector2.up * jumpForce);
+
+            if (!hasPlayedJumpSound && !AudioController.Instance.jumpSound.isPlaying)
+            {
+                AudioController.Instance.jumpSound.Play();
+                hasPlayedJumpSound = true;
+            }
+
+            animator.SetBool("OnGround", false);
+            animator.SetBool("Jump", true);
         }
-
-
 
     }
 
