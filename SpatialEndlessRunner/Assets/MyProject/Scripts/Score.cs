@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    //controlar quando ele sai do trigger e vai add ponto e o gamemanager vai pontuar e registrar
+    //Controlls when the player leave the trigger e add the point through the game manager
 
     private void OnTriggerExit2D(Collider2D _other)
     {

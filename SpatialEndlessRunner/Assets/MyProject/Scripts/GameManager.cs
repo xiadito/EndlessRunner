@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuScreen;
     [SerializeField] GameObject normalScreen;
     [SerializeField] GameObject deadScreen;
+    [SerializeField] GameObject pauseScreen;
 
     private int score;
     private int highscore;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         Menu,
         Normal,
         Dead,
+        Pause,
     }
 
     private void Awake()
@@ -72,6 +74,15 @@ public class GameManager : MonoBehaviour
                 menuScreen.SetActive(false);
                 deadScreen.SetActive(true);
                 
+                break;
+
+            case Screen.Pause:
+
+                normalScreen.SetActive(false);
+                menuScreen.SetActive(false);
+                deadScreen.SetActive(false);
+                pauseScreen.SetActive(true);
+
                 break;
         }
     }
