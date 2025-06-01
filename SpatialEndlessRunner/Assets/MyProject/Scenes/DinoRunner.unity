@@ -141,6 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 71826490}
+  - component: {fileID: 71826491}
   m_Layer: 0
   m_Name: Clouds
   m_TagString: Untagged
@@ -157,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 71826489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48, y: 0.91, z: 0}
+  m_LocalPosition: {x: 48, y: 0.91, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -171,11 +172,56 @@ Transform:
   - {fileID: 1483305143}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71826491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71826489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c86ba63a9244a40be8ce1dd44fd406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 519420031}
+  player: {fileID: 1520752232}
 --- !u!4 &84164909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2402641464567111946, guid: 63481eba7c3aa474e93f7ef5b25351cc, type: 3}
   m_PrefabInstance: {fileID: 999983739}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &85675455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 85675456}
+  m_Layer: 0
+  m_Name: ------------ENVIROMENT------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &85675456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85675455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.3877177, y: -14.121058, z: 25.81284}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109409479
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +420,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 430806753}
     m_Modifications:
+    - target: {fileID: 34638355128702297, guid: ea530fff99375264e878212a682a44fd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 34638355128702297, guid: ea530fff99375264e878212a682a44fd, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5961340507212848013, guid: ea530fff99375264e878212a682a44fd, type: 3}
       propertyPath: m_Name
       value: Mountains (3)
@@ -497,6 +551,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 208755527}
     m_Modifications:
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5463607650234120708, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
       propertyPath: m_Name
       value: Sky (8)
@@ -616,6 +678,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 208755527}
     m_Modifications:
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5463607650234120708, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
       propertyPath: m_Name
       value: Sky (4)
@@ -674,6 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 208755527}
+  - component: {fileID: 208755528}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -690,7 +761,7 @@ Transform:
   m_GameObject: {fileID: 208755526}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48, y: -3.93, z: 0}
+  m_LocalPosition: {x: 48, y: -3.93, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -704,6 +775,20 @@ Transform:
   - {fileID: 520917152}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208755528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208755526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c86ba63a9244a40be8ce1dd44fd406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 519420031}
+  player: {fileID: 1520752232}
 --- !u!1 &251077380
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +965,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5536036690030195854, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
   m_PrefabInstance: {fileID: 545293434}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &326476140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326476141}
+  m_Layer: 0
+  m_Name: ----------DEPENDENCIES----------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326476141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326476140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.3877177, y: -14.121058, z: 25.81284}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &328710105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7118564497173302858, guid: ea530fff99375264e878212a682a44fd, type: 3}
@@ -893,6 +1009,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 208755527}
     m_Modifications:
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5463607650234120708, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
       propertyPath: m_Name
       value: Sky (9)
@@ -1223,6 +1347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430806753}
+  - component: {fileID: 430806754}
   m_Layer: 0
   m_Name: Mountains
   m_TagString: Untagged
@@ -1239,7 +1364,7 @@ Transform:
   m_GameObject: {fileID: 430806752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44, y: -1.88, z: 0}
+  m_LocalPosition: {x: 44, y: -1.88, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1250,6 +1375,20 @@ Transform:
   - {fileID: 748127960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &430806754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430806752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c86ba63a9244a40be8ce1dd44fd406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 519420031}
+  player: {fileID: 1520752232}
 --- !u!1 &454530789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1621,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0
-  far clip plane: 100
+  far clip plane: 50
   field of view: 34
   orthographic: 1
   orthographic size: 5
@@ -1510,7 +1649,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.54, y: 0, z: -0.132}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1543,6 +1682,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 208755527}
     m_Modifications:
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5463607650234120708, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
       propertyPath: m_Name
       value: Sky (7)
@@ -1733,6 +1880,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 430806753}
     m_Modifications:
+    - target: {fileID: 34638355128702297, guid: ea530fff99375264e878212a682a44fd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 34638355128702297, guid: ea530fff99375264e878212a682a44fd, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5961340507212848013, guid: ea530fff99375264e878212a682a44fd, type: 3}
       propertyPath: m_Name
       value: Mountains (4)
@@ -1835,6 +1990,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6702140364289995744, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
       propertyPath: m_Name
       value: Clouds (6)
@@ -2147,7 +2310,7 @@ RectTransform:
   - {fileID: 1595969529}
   - {fileID: 251077381}
   - {fileID: 694630505}
-  m_Father: {fileID: 914306173}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2543,8 +2706,7 @@ Transform:
   m_LocalPosition: {x: 9.459456, y: 0.23662424, z: -0.020470891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 723384688}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &933267117
@@ -2633,8 +2795,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948879536}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2094725, y: 3.0580769, z: -0.020470891}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2094727, y: 3.0580769, z: -0.020470891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2659,6 +2821,7 @@ MonoBehaviour:
   menuScreen: {fileID: 1595969528}
   normalScreen: {fileID: 251077380}
   deadScreen: {fileID: 694630504}
+  pauseScreen: {fileID: 0}
 --- !u!1001 &999983739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2728,6 +2891,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 430806753}
     m_Modifications:
+    - target: {fileID: 34638355128702297, guid: ea530fff99375264e878212a682a44fd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 34638355128702297, guid: ea530fff99375264e878212a682a44fd, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5961340507212848013, guid: ea530fff99375264e878212a682a44fd, type: 3}
       propertyPath: m_Name
       value: Mountains (2)
@@ -2825,6 +2996,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6702140364289995744, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
       propertyPath: m_Name
       value: Clouds (5)
@@ -2839,6 +3018,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1308750031867604647, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
   m_PrefabInstance: {fileID: 1177120254}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1191199710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191199711}
+  m_Layer: 0
+  m_Name: '-----------------UI------------------ '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1191199711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191199710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.3877177, y: -14.121058, z: 25.81284}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243651248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +3088,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 208755527}
     m_Modifications:
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5463607650234120708, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
       propertyPath: m_Name
       value: Sky (6)
@@ -3315,6 +3533,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 208755527}
     m_Modifications:
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5463607650234120708, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
       propertyPath: m_Name
       value: Sky (5)
@@ -3412,6 +3638,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6702140364289995744, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
       propertyPath: m_Name
       value: Clouds (7)
@@ -3505,6 +3739,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 208755527}
     m_Modifications:
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: -113425288547493045, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5463607650234120708, guid: 9857b68e0b3b68744a7a216b6f1bc315, type: 3}
       propertyPath: m_Name
       value: Sky (1)
@@ -4076,6 +4318,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5060388561114925918, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4155,6 +4405,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6702140364289995744, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
       propertyPath: m_Name
       value: Clouds (4)
@@ -4288,6 +4546,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 3763678565371207376, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5060388561114925918, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4992,7 +5258,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1421203094239184777, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.53999996
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1421203094239184777, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5092,7 +5358,7 @@ PrefabInstance:
       objectReference: {fileID: 1752027577}
     - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
       propertyPath: maxJumpHeight
-      value: 10
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 7465218712810946853, guid: c93d70d9c3c968a4dbfc7bcf0f1c10bb, type: 3}
       propertyPath: currentMoveSpeed
@@ -5326,31 +5592,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3022372123363590829, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3552673923876036324, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5060388561114925918, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5528724185904611504, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 2162183411499824049, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1520752232}
+    - target: {fileID: 2162183411499824049, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6702140364289995744, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
       propertyPath: m_Name
       value: Clouds
       objectReference: {fileID: 0}
-    - target: {fileID: 7254714978169096386, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2162183411499824049, guid: 1b82c066d90ac96478bbc1bcd4d047a2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5364,15 +5619,19 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 948879537}
-  - {fileID: 1454173426}
-  - {fileID: 914306173}
+  - {fileID: 326476141}
   - {fileID: 519420032}
-  - {fileID: 1045760096346212015}
+  - {fileID: 948879537}
+  - {fileID: 914306173}
+  - {fileID: 1454173426}
+  - {fileID: 2062900732}
+  - {fileID: 1191199711}
+  - {fileID: 723384688}
   - {fileID: 2084424445}
+  - {fileID: 85675456}
+  - {fileID: 1045760096346212015}
   - {fileID: 208755527}
   - {fileID: 1605417745}
   - {fileID: 1964480519}
   - {fileID: 71826490}
   - {fileID: 430806753}
-  - {fileID: 2062900732}
